@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/mopac7/%{name}-%{version}.tar.gz
 # Source0-md5:	501c34ad4995d127dca8461a05ceb66a
 URL:		http://sourceforge.net/projects/mopac7/
 BuildRequires:	libf2c-devel
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,6 +45,8 @@ Statyczna biblioteka MOPAC7.
 
 %prep
 %setup -q
+
+sed -i -e 's/-lg2c/-lf2c/' libmopac7.pc.in
 
 %build
 %configure
