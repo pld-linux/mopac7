@@ -8,8 +8,7 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/mopac7/%{name}-%{version}.tar.gz
 # Source0-md5:	501c34ad4995d127dca8461a05ceb66a
 URL:		http://sourceforge.net/projects/mopac7/
-# requires libg2c or libf2c
-BuildRequires:	gcc-g77 < 5:3.0
+BuildRequires:	libf2c-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,8 +22,7 @@ Summary:	Header files for MOPAC7 library
 Summary(pl):	Pliki nag³ówkowe biblioteki MOPAC7
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-# just libg2c-devel or libf2c-devel
-Requires:	gcc-g77 < 5:3.0
+Requires:	libf2c-devel
 
 %description devel
 Header files for MOPAC7 library.
@@ -49,7 +47,8 @@ Statyczna biblioteka MOPAC7.
 
 %build
 %configure
-%{__make}
+%{__make} \
+	libmopac7_la_LIBADD=-lf2c
 
 %install
 rm -rf $RPM_BUILD_ROOT
