@@ -48,7 +48,8 @@ Statyczna biblioteka MOPAC7.
 %build
 %configure
 %{__make} \
-	libmopac7_la_LIBADD=-lf2c
+	libmopac7_la_LIBADD=-lf2c \
+	mopac7_LDFLAGS="-lmopac7 -lf2c -lf2cmain -lm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
