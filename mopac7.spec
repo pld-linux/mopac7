@@ -1,5 +1,5 @@
 Summary:	A library for semi-empirical QM calculations
-Summary(pl):	Biblioteka do semiempirycznych obliczeÒ z zakresu mechaniki kwantowej
+Summary(pl.UTF-8):   Biblioteka do semiempirycznych oblicze≈Ñ z zakresu mechaniki kwantowej
 Name:		mopac7
 Version:	1.11
 Release:	1
@@ -15,12 +15,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A library for semi-empirical QM calculations.
 
-%description -l pl
-Biblioteka do semiempirycznych obliczeÒ z zakresu mechaniki kwantowej.
+%description -l pl.UTF-8
+Biblioteka do semiempirycznych oblicze≈Ñ z zakresu mechaniki kwantowej.
 
 %package devel
 Summary:	Header files for MOPAC7 library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki MOPAC7
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki MOPAC7
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libf2c-devel
@@ -28,19 +28,19 @@ Requires:	libf2c-devel
 %description devel
 Header files for MOPAC7 library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki MOPAC7.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki MOPAC7.
 
 %package static
 Summary:	Static MOPAC7 library
-Summary(pl):	Statyczna biblioteka MOPAC7
+Summary(pl.UTF-8):   Statyczna biblioteka MOPAC7
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static MOPAC7 library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka MOPAC7.
 
 %prep
