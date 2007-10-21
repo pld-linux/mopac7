@@ -1,12 +1,12 @@
 Summary:	A library for semi-empirical QM calculations
 Summary(pl.UTF-8):	Biblioteka do semiempirycznych obliczeń z zakresu mechaniki kwantowej
 Name:		mopac7
-Version:	1.11
-Release:	1
+Version:	1.13
+Release:	0.1
 License:	Public Domain
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/mopac7/%{name}-%{version}.tar.gz
-# Source0-md5:	501c34ad4995d127dca8461a05ceb66a
+Source0:	http://bioinformatics.org/ghemical/download/current/%{name}-%{version}.tar.gz
+# Source0-md5:	a2aabd7cf35ff7ac407934e930648a87
 URL:		http://sourceforge.net/projects/mopac7/
 BuildRequires:	libf2c-devel
 BuildRequires:	sed >= 4.0
