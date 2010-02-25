@@ -1,0 +1,12 @@
+--- mopac7-1.15/libmopac7.pc.in~	2010-02-25 15:13:32.230883061 +0100
++++ mopac7-1.15/libmopac7.pc.in	2010-02-25 15:15:43.524245665 +0100
+@@ -1,7 +1,7 @@
+ prefix=@prefix@
+-libdir=${prefix}/lib
++libdir=@libdir@
+ 
+ Name: libmopac7
+ Description: A library for semi-empirical QM calculations.
+ Version: @VERSION@
+-Libs: -L${libdir} -lmopac7
++Libs: -lmopac7
