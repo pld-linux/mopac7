@@ -2,14 +2,17 @@ Summary:	A library for semi-empirical QM calculations
 Summary(pl.UTF-8):	Biblioteka do semiempirycznych obliczeń z zakresu mechaniki kwantowej
 Name:		mopac7
 Version:	1.15
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Libraries
 Source0:	http://bioinformatics.org/ghemical/download/current/%{name}-%{version}.tar.gz
 # Source0-md5:	7e509fd03154b37cc682593365c233f4
+Patch0:		%{name}-paths.patch
 URL:		http://sourceforge.net/projects/mopac7/
-BuildRequires:	libf2c-devel
-BuildRequires:	sed >= 4.0
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gcc-fortran
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,14 +48,15 @@ Statyczna biblioteka MOPAC7.
 
 %prep
 %setup -q
-
-sed -i -e 's/-lg2c/-lf2c/' libmopac7.pc.in
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 %configure
-%{__make} \
-	libmopac7_la_LIBADD=-lf2c \
-	mopac7_LDFLAGS="-lmopac7 -lf2c -lf2cmain -lm"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libmopac7.so.*.*.*
-%ghost %{_libdir}/libmopac7.so.1
+%attr(755,root,root) %ghost %{_libdir}/libmopac7.so.1
 
 %files devel
 %defattr(644,root,root,755)
