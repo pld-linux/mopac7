@@ -9,10 +9,10 @@ Source0:	http://bioinformatics.org/ghemical/download/current/%{name}-%{version}.
 # Source0-md5:	7e509fd03154b37cc682593365c233f4
 Patch0:		%{name}-paths.patch
 URL:		http://sourceforge.net/projects/mopac7/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gcc-fortran
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,7 +26,6 @@ Summary:	Header files for MOPAC7 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki MOPAC7
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libf2c-devel
 
 %description devel
 Header files for MOPAC7 library.
