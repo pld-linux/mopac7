@@ -1,0 +1,11 @@
+--- mopac7-1.15/fortran/fdate.c~	2009-10-17 12:39:39.000000000 +0200
++++ mopac7-1.15/fortran/fdate.c	2026-05-08 00:00:00.000000000 +0200
+@@ -21,6 +21,8 @@
+ #include <time.h>
+ #include <string.h>
+
++void s_copy(char *a, char *b, ftnlen la, ftnlen lb);
++
+ void fdate_(char *cht, ftnlen cht_len)
+ {
+     static time_t t;

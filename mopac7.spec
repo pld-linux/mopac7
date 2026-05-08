@@ -2,12 +2,13 @@ Summary:	A library for semi-empirical QM calculations
 Summary(pl.UTF-8):	Biblioteka do semiempirycznych obliczeń z zakresu mechaniki kwantowej
 Name:		mopac7
 Version:	1.15
-Release:	5
+Release:	6
 License:	Public Domain
 Group:		Libraries
 Source0:	http://bioinformatics.org/ghemical/download/current/%{name}-%{version}.tar.gz
 # Source0-md5:	7e509fd03154b37cc682593365c233f4
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-implicit-decl.patch
 URL:		http://sourceforge.net/projects/mopac7/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -48,6 +49,7 @@ Statyczna biblioteka MOPAC7.
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
@@ -55,7 +57,7 @@ Statyczna biblioteka MOPAC7.
 %{__automake}
 %{__autoconf}
 %configure
-%{__make}
+%{__make} FFLAGS="%{rpmfflags} -fallow-argument-mismatch"
 
 %install
 rm -rf $RPM_BUILD_ROOT
